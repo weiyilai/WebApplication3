@@ -1,0 +1,36 @@
+﻿@model WebApplication3.Models.VelusViewModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+@using (Html.BeginForm("Index", "Values", FormMethod.Post))
+{
+    <div>
+        <h4>VelusViewModel</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Number)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.TextBoxFor(model => model.Number)
+                <span asp-validation-for="@Model.Number" class="text-danger"></span>
+                @Model.Convert36
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Alphanumeric)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.TextBoxFor(model => model.Alphanumeric)
+                <span asp-validation-for="@Model.Alphanumeric" class="text-danger"></span>
+                @Model.Convert10
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <input type="submit" class="btn" id="btnProceed" value="計算" />
+    </div>
+}
